@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: arnovoyer/rv-hard-news
+  branch: main
+  base_url: https://decapcms-oauth.netlify.app
+  auth_endpoint: auth
+
+
+media_folder: "/assets/news"
+public_folder: "/assets/news"
+
+collections:
+  - name: "news"
+    label: "News"
+    folder: "news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Titelbild", name: "image", widget: "image", required: false }
+      - { label: "Inhalt", name: "content", widget: "text" }
